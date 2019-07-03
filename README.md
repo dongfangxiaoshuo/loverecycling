@@ -1,29 +1,25 @@
-# loverecycling
+## 爱回收(前端)
 
-## Project setup
-```
-npm install
-```
+> 框架及插件
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+###### VueCli3+Scss+Vant+Router+VueX
 
-### Compiles and minifies for production
-```
-npm run build
-```
+> 页面及功能
 
-### Run your tests
-```
-npm run test
-```
+#### 首页
 
-### Lints and fixes files
-```
-npm run lint
-```
+###### 地理定位(暂定高德)->点击跳转全国县市级手动选择定位
+###### 搜索框->点击跳转搜索页面
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### 活动
+
+###### 吸顶
+
+#### 服务站
+
+###### 根据本市遍历
+
+#### 我的
+
+###### 登陆/注册
+
