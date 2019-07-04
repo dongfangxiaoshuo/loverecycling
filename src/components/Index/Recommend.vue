@@ -116,9 +116,40 @@
           </div>
 
           <div class="coral-text">
-            
+            <swiper :options="swiperOption" ref="mySwiper">
+              <swiper-slide>北京市马先生 以￥2999 喜提荣耀20 8GB 256GB 幻夜黑 全网通</swiper-slide>
+              <swiper-slide>广州市张先生 以￥2799 喜提红米 K20 Pro 8GB 128GB 冰山蓝 全网通</swiper-slide>
+              <swiper-slide>南昌市张先生 以￥5488 喜提Apple iPhone XR 128GB 黑色 双卡双待</swiper-slide>
+            </swiper>
           </div>
+
+          <div class="hot_events">
+            <img src="/images/15.png" alt="">
+            <div>
+              <img src="/images/16.png" alt="">
+              <img src="/images/17.png" alt="">
+            </div>
+          </div>
+
+          <div class="public_welfare">
+            <img src="/images/18.png" alt="">
+            <div>
+              <img src="/images/19.png" alt="">   
+            </div>
+          </div>
+
+          <div class="understand">
+            <img src="/images/20.png" alt="">
+            <img src="/images/21.png" alt="">
+          </div>
+
+          <div class="partners">
+            <img src="/images/22.jpg" alt="">
+          </div>
+          
         </div>
+
+       
 
       </article>
 
@@ -184,11 +215,22 @@ export default {
           price:1399,
           mit:100
         },
-      ]
+      ],
+      swiperOption: {
+        direction: 'vertical',
+        speed:2000,
+        autoplay:true,
+        loop:true,
+      }
     }
   },
   mounted() {
     
+  },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.swiper
+    }
   },
   methods:{
     dialog(){
@@ -675,6 +717,7 @@ export default {
           line-height: .32rem;
           padding-left: .1rem;
           margin: .17rem .15rem 0 .15rem;
+         
           &::before{
             content: "";
             position: absolute;
@@ -687,11 +730,38 @@ export default {
             background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAcCAYAAAB/E6/TAAAAAXNSR0IArs4c6QAAA2NJREFUSA21Vj1oVEEQnr0oaCQxigkICUGiBAOxUtQLmiioKURt1MpOBH+KgJVgpXailjYqWGgpFmIKLQRRsAgGUioWIiYa9BQlHknujd/M7uztO3O5a1x4b/6/b2Z37yWOmlw8vX2EMr5BzP3ENEHkLrieiakmy8k1k8gzxS7ihfdUydpARPoQf6Kejk3OvVhsBqPQTBLRwk7KQBIX+mPXTR9L/dHVQFl2Ii6NdFB5bowoG8O2rfXTAFGnUvkFe3KTWtfcdp2vfi3HVZeIZ3cfxhQP8LT7rQJMFrbNtg+mJ+US5AnXN/W8HtmSW8dfd50E6iNikFgrAo5bUF0WEI9bh9AT/rDtSDWe19JsjfC34kHKKuPovqC4nHl85TEdxpI24WIUht3mydd5GnhTB/PxFkxxC77Eb70IsugibcGOJhTOVhAtXrdoKhNAuEufT6NwIBYrR0ByRmjS/AYHv+QwFfnd4FHzmswTcXZem67B0uR/zsggTMpEgZzpjHlNRiL+eWg9uhnUaSRfJ1DFcoPPTOk+AFt3cepsj2WZjERUmeuWufO3DGk2nVQoroFLrgWDz4iZ2nh2KPmB5w6d241dpYLUdi0RA89lwzBixCXlz1w9IsFIgOOZSKFUStehc2iRUPMkLg+W2Gma96bXOCRZgYArQY0/FEaRy4E34Yw5UKpnhK+kBkJjvrO0NdEtKFJsi0MKYfWMsHWZJStslYizVgXK4eVytcC/jCCJC4lNJ7KlZXVSkEzkXGcc23BUBsNA0upUT+M62XxXGq5ORLQ1bpc1qjIYti1aLT55rKOgiymPkDLwkpUQuWHv1ySvKo6+QonpJoVAltjQxVQX7Artk4gtxz/29xGXz+JrfVGdWfhCi5H+/am1ZULBFyl5YoiIultA7Cplq+64gYlpfG3L4whvweMTdWypkAUpHYqpW2d+iVlAVOhKkOq8El/zK1QoD8E7iq1zj1Ez728MgAxLgQGgEql+T0RJVkz2ZBqBzy6GK/wGwNOk4P+rMv+yi2d2XMKUo5ok2yNnKEsm1YH4nuudvO+d9d84owbLue8A3+uBFTmQBCJH1xogaDi53nXSu1rvYtNfatT23hvyfohpnqnZ4NWQSP8T3bjhAA74MgjfYpwS9De4G+eo99ipBvgx/BfXaGkdmrYXkwAAAABJRU5ErkJggg==) no-repeat;
             background-size: 100%;
           }
-          
+          .swiper-container{
+              padding-left:.3rem;   
+              width: 6rem;
+              overflow:hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis; 
+          } 
           
           
         }
-      }
+        .hot_events{
+          div{
+            width: 100%;
+            display: flex;
+            img{
+              height: 1.2rem;
+              width: 1.85rem;
+              display: block;
+            }
+          }
+        }
+        .understand{
+          display: flex;
+          img{
+              height: 1.2rem;
+              width: 1.85rem;
+              display: block;
+            }
+        }
+        
+      } 
+      
       
      
     }

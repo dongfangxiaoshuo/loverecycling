@@ -7,6 +7,13 @@ import 'vant/lib/index.css';
 
 Vue.use(Vant);
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+// require styles
+import 'swiper/dist/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
+
 Vue.config.productionTip = false
 
 new Vue({
