@@ -14,22 +14,6 @@
       </van-tabs>
     </nav>
 
-    <!-- <div data-v-33502c9a="" class="van-tabs van-tabs--line">
-      <div class="van-tabs__wrap van-hairline--top-bottom">
-        <div role="tablist" class="van-tabs__nav van-tabs__nav--line" style="border-color: rgb(255, 211, 63);">
-          <div role="tab" aria-selected="true" class="van-tab van-tab--active">
-            <span class="van-ellipsis">推荐</span>
-          </div>
-          <div role="tab" class="van-tab"><span class="van-ellipsis">卖手机</span></div>
-          <div role="tab" class="van-tab"><span class="van-ellipsis">卖笔记本</span></div>
-          <div role="tab" class="van-tab"><span class="van-ellipsis">卖平板</span></div>
-          <div class="van-tabs__line" style="background-color: rgb(255, 211, 63); width: 47px; transform: translateX(47px) translateX(-50%);"></div>
-        </div>
-        </div>
-    </div>
-       -->
-
-
     
   </div>
 </template>
@@ -60,41 +44,40 @@ export default {
 
 
 <style scoped lang="scss">
-  header{
-    position: fixed;
-    height: .5rem;
-    width: 100%;
-    top:0;
-    left:0;
-    z-index: 2000;
-    background: #fff;
-    div{
-      font-size:.13rem;
-      padding: .15rem;
-    }
-    .search{
-      position: absolute;
-      padding: 0;
+  .index{
+    header{
+      position: fixed;
+      height: .5rem;
+      width: 100%;
       top:0;
-      right: .1rem;
-      width: 3rem;
-    }
-  }
-  nav{
-    .van-tabs{
-      position: relative;
-      top: .535rem;
       left:0;
-       .van-tabs__wrap{ 
-        position: fixed;
-        top:.54rem;
-        left:0;
-        z-index: 2000;
+      z-index: 2000;
+      background: #fff;
+      display: flex;
+
+      div{
+        font-size:.13rem;
+        padding: .15rem 0 0rem .15rem;
+        width:3rem;
+      }
+      .search{
+        padding: 0;
+        line-height: 100%;
+        width: 10rem;
       }
     }
-     
-    
-    
-    
+    nav{
+      .van-tabs{
+        position: relative;
+        top: .5rem;
+        left:0;
+        .van-tabs__wrap{ 
+          position: fixed;
+          top:.54rem;
+          left:0;
+          z-index: 2000;
+        }
+      }     
+    }
   }
 </style>

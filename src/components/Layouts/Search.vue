@@ -27,7 +27,7 @@ export default {
      
     }
     .van-search{
-      padding: 10px;
+      padding: .1rem 0 0 0 ;
     }
     
   }

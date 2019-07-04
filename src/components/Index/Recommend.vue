@@ -8,7 +8,6 @@
         <div>
           <dl>
             <dt>
-
               <div class="left">
                 <p>
                   <i>¥</i>
@@ -146,7 +145,7 @@
           <div class="partners">
             <img src="/images/22.jpg" alt="">
           </div>
-          
+
         </div>
 
        
@@ -250,6 +249,7 @@ export default {
 <style scoped lang="scss">
  
   section{
+    background: #fff;
     header{
       width: 100%;
       img{
@@ -259,12 +259,11 @@ export default {
       div{
         background-color: rgb(141, 75, 211);
         height: .7rem;
-        width: 100%;
+        padding: 0 .2rem;
         dl{
           position: relative;
-          margin: 0 auto;
           height: 1.3rem;
-          width: 3.43rem;
+          width:100%;
           background-color: #fff;
           dt{
             background-color: #fff;
@@ -460,6 +459,7 @@ export default {
       position: relative;
       top:.7rem;
       left:0;
+      background: #fff;
       div{
         img{
           width: 100%;
@@ -467,8 +467,11 @@ export default {
         }
       }
       .tag_wrap{
-        margin: 0 .3rem;
+        margin: 0 .2rem;
         display: flex;
+        justify-content:space-around;
+        text-align: center;
+
         .tag{
           width: .88rem;
           color: #666;
@@ -476,13 +479,13 @@ export default {
           font-weight: 400;
           line-height: .18rem;
           display: inline-block;
-          text-align: center;
           img{
             width: .6rem;
           }
         }
       }
       .main{
+        background: #fff;
         .ofn_service{
           box-shadow: 0 0.02rem 0.12rem 0 hsla(195,9%,83%,.44);
           border-radius: .04rem;
@@ -490,6 +493,7 @@ export default {
           .ofn_service_content{
             display: flex;
             padding-top:.1rem; 
+            justify-content:space-around;
             .ofn_service_content_left,.ofn_service_content_right{
               margin-right: .05rem;
               width: 1.61rem;
@@ -566,7 +570,7 @@ export default {
             display: -ms-flexbox;
             display: flex;
             -ms-flex-pack: justify;
-            justify-content: space-between;
+            justify-content:space-around;
             -ms-flex-align: center;
             align-items: center;
             padding: .1rem;
@@ -610,7 +614,6 @@ export default {
         .more{
           box-shadow: 0 0.02rem 0.12rem 0 hsla(195,9%,83%,.44);
           margin: .1rem .15rem 0 .15rem;
-
           padding: .14rem .16rem 0;
           border-radius: .04rem;
           .more_title{
@@ -621,6 +624,7 @@ export default {
           }
           .replace-list{
             display: flex;
+            justify-content:space-around;
             margin-top: .15rem;
             border-bottom: 1px solid #eee;
             .replace-item{
@@ -744,6 +748,7 @@ export default {
           div{
             width: 100%;
             display: flex;
+            justify-content:space-around;
             img{
               height: 1.2rem;
               width: 1.85rem;
@@ -753,6 +758,8 @@ export default {
         }
         .understand{
           display: flex;
+          justify-content:space-around
+          ;
           img{
               height: 1.2rem;
               width: 1.85rem;
