@@ -26,6 +26,9 @@ export default {
       font-size:.18rem;
      
     }
+    .van-search{
+      padding: 10px;
+    }
     
   }
   
