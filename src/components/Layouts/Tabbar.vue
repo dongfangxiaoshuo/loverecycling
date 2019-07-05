@@ -32,7 +32,7 @@ export default {
 
 <style scoped lang="scss">
   .tabbar{
-    margin-top:1.8rem; 
+    margin-top:1.6rem; 
   }
   
 </style>
