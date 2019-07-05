@@ -1,18 +1,18 @@
 <template>
   <div class="index">
-    <Index></Index>
+    <Ofnew></Ofnew>
     <Tabbar></Tabbar>
   </div>
 </template>
 
 <script>
-import Index from '@/components/Index/IndexComment.vue'
+import Ofnew from '@/components/Ofnew/OfnewComment.vue'
 import Tabbar from '@/components/Layouts/Tabbar.vue'
 
 export default {
   name: 'home',
   components: {
-    Index,
+    Ofnew,
     Tabbar
   }
 }
@@ -20,7 +20,6 @@ export default {
 
 <style scoped lang="scss">
   .tabbar{
-    margin-top:1.6rem; 
+    margin-top:.5rem; 
   }
 </style>
-
