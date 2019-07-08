@@ -19,7 +19,8 @@
       else {
           alert('failed'+this.getStatus());
       }        
-    },{enableHighAccuracy: true}) ```
+    },{enableHighAccuracy: true}) 
+```
 ###### 搜索框->点击跳转搜索页面
 
 #### 活动
