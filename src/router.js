@@ -4,6 +4,7 @@ import Index from './views/Index.vue'
 import Ofnew from './views/Ofnew.vue'
 import Shop from './views/Shop.vue'
 import Me from './views/Me.vue'
+import Choosecity from './views/Choosecity.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/me',
       name: 'Me',
       component: Me
+    },
+    {
+      path: '/choosecity',
+      name: 'Choosecity',
+      component: Choosecity
     },
   ]
 })

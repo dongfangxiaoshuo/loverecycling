@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <header>
+    <header @click="$router.push({ path:'/choosecity'})">
       <div>{{my_city?my_city:"定位失败,点击获取"}}<van-icon name="arrow-down"/></div>
       <Search></Search>
     </header>
