@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <header>
-      <div>北京市<van-icon name="arrow-down"/></div>
+      <div>{{my_city?my_city:"定位失败,点击获取"}}<van-icon name="arrow-down"/></div>
       <Search></Search>
     </header>
 
@@ -217,11 +217,32 @@ export default {
             },
           ]
         }
-      ]
+      ],
+      my_city:"",
 
     }
   },
   methods:{
+   
+  },
+  mounted() {
+	
+  },
+  created(){
+    var that = this;
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+      if(this.getStatus() == BMAP_STATUS_SUCCESS){
+        that.my_city=r.address.city;
+          console.log(r.address.city);
+          // alert('您的位置：'+r.point.lng+','+r.point.lat);
+      }
+      else {
+          alert('failed'+this.getStatus());
+      }        
+    },{enableHighAccuracy: true})
+
+
   }
   
 }
