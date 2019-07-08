@@ -8,7 +8,18 @@
 
 #### 首页
 
-###### 地理定位(暂定高德)->点击跳转全国县市级手动选择定位
+###### 地理定位(百度Api)->点击跳转全国县市级手动选择定位
+```var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+      if(this.getStatus() == BMAP_STATUS_SUCCESS){
+        that.my_city=r.address.city;
+          console.log(r.address.city);
+          // alert('您的位置：'+r.point.lng+','+r.point.lat);
+      }
+      else {
+          alert('failed'+this.getStatus());
+      }        
+    },{enableHighAccuracy: true}) ```
 ###### 搜索框->点击跳转搜索页面
 
 #### 活动
