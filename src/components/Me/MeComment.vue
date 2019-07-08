@@ -107,7 +107,6 @@ export default {
   .me{
     img{
       width: 100%;
-      display: block;
     }
     header{
       height: .44rem;
@@ -311,6 +310,7 @@ export default {
           text-align: center;
           img{
             margin: 0 auto;
+            display: block;
           }
           span{
             color: #666;
