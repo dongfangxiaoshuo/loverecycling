@@ -284,14 +284,12 @@ export default {
       let city_num = 0;
       //获取点击index之前所有城市的数量和标签的数量
       for(let i=1;i<this.national_cities.length;i++){
-        city_num+=this.national_cities[i].lists.length;      
-        if(index==i){
-          city_num-=this.national_cities[i].lists.length;  
-          console.log(city_num)
-
+         if(index==i){ 
           this.scroll(city_num,i);
           return;
         }
+        city_num+=this.national_cities[i].lists.length;      
+       
       }
     },
     //根据城市数量的高度和标签的高度跳转
@@ -299,9 +297,7 @@ export default {
       if(i==1){
         window.scrollTo(0,317);
       }else{
-        console.log()
         let scroll_height = city_num*47+(i-1)*30+317;
-        // console.log("city_num:"+ city_num,"i:"+i,scroll_height);
         window.scrollTo(0,scroll_height);
 
       }

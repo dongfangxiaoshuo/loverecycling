@@ -5,6 +5,9 @@ import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import axios from 'axios';
+Vue.prototype.$axios = axios;
+
 Vue.use(Vant);
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
