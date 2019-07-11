@@ -226,7 +226,7 @@ export default {
    
   },
   mounted() {
-	
+    
   },
   created(){
     var that = this;

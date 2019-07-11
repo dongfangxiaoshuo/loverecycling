@@ -75,6 +75,13 @@ export default {
             width:.87rem;
             height: .71rem;
           }
+          p{
+            color: #666;
+            font-size: .14rem;
+            font-weight: 400;
+            line-height: .18rem;
+            display: inline-block;
+          }
         }
       }
     }

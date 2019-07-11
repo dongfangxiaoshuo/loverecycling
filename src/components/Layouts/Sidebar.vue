@@ -1,9 +1,9 @@
 <template>
   <div class="sidebar">
     <div class="commin">
-      <div class="common_item" v-for="model in recycled_models " v-bind:key="model.id">
+      <div class="commin_item" v-for="model in recycled_models " v-bind:key="model.id">
         <p>
-          <span></span>
+          <span>{{model.id}}</span>
           <span>{{model.model_name}}</span>
         </p>
       </div>
@@ -78,18 +78,23 @@ export default {
       border-color:#ffd33f;
     }
     .commin{
-      float:left;
+      float: right;
+      width: 77%;
       height: 100%;
       overflow-y: scroll;
       overflow-x: hidden;
       .commin_item{
-        height: .56rem;
+        float: left;
+        width: 100%;
         padding: .17rem 0 .17rem .13rem;
         border-bottom: 1px solid #eee;
         p{
           line-height: .2rem;
           font-size: .14rem;
           color: #111;
+          span{
+            margin-right: .1rem;
+          }
         }
       }
 

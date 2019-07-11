@@ -1,5 +1,5 @@
 <template>
-  <div class="choosecity">
+  <div class="category">
     <Return></Return>
     <Category></Category>
   </div>
@@ -11,7 +11,7 @@ import Category from '@/components/Layouts/CategoryComment.vue'
 
 
 export default {
-  name: 'choosecity',
+  name: 'category',
   components: {
     Return,
     Category

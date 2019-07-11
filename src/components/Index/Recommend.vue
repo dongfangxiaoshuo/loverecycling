@@ -16,7 +16,7 @@
               </div>
 
               <div class="right">
-                <a href="javascript:;"><p>选择机型查看优惠</p></a>
+                <a href="/#/category"><p>选择机型查看优惠</p></a>
                 <div>
                   <span>最高加价：</span>
                   <p>
@@ -31,19 +31,19 @@
             <dd>
               <div class="countDown">
                 <p>
-                  <span>28</span>
+                  <span>{{day}}</span>
                   <i>天</i>
-                  <span>09</span>
+                  <span>{{hour}}</span>
                   <i>时</i>
-                  <span>57</span>
+                  <span>{{minute}}</span>
                   <i>分</i>
-                  <span>53</span>
+                  <span>{{second}}</span>
                   <i>秒</i>
                 </p>
                 <i class="rule" @click="dialog"></i>
               </div>
 
-              <div class="recoveryBtn">
+              <div class="recoveryBtn" @click="$router.push({path:'/category'})">
                 立即回收
               </div>
             </dd>
@@ -64,14 +64,14 @@
           </div>
         </div>
         <div>
-          <img src="/images/7.png" alt="">
+          <img src="/images/7.png" alt="" @click="$router.push({path:'/category'})">
         </div>
 
         <div class="main">
 
           <div class="ofn_service">
-            <img src="/images/8.png" alt="">
-            <div class="ofn_service_content">
+            <img src="/images/8.png" alt="" @click="$router.push({path:'/ofnew'})">
+            <div class="ofn_service_content" @click="$router.push({path:'/ofnew'})">
               <div class="ofn_service_content_left">
                 <p>旧机估价</p>
                 <img src="/images/9.jpg" alt="">
@@ -220,16 +220,28 @@ export default {
         speed:2000,
         autoplay:true,
         loop:true,
-      }
+      },
+      day:'',
+      hour:'',
+      minute:'',
+      second:'',
+      isEnd:false,//倒计时是否结束
+      endTime:'2019-08-01 08:00:00',//应为接口获取到的结束时间
+      
     }
   },
   mounted() {
     
   },
+  created(){
+     let that = this;
+		that.setEndTime();
+  },
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper
-    }
+    },
+    
   },
   methods:{
     dialog(){
@@ -237,8 +249,36 @@ export default {
       title: '活动规则',
       message: 
       '1.活动时间：优惠领取后7日内有效，仅限在爱回收官网、门店使用；\n2.限时加价券：\n1）实际回收金额满100元，可使用5元加价券\n2）实际回收金额满500元，可使用20元加价券\n3）实际回收金额满1000元，可使用30元加价券\n4）实际回收金额满2000元，可使用50元加价券\n5）实际回收金额满4000元，可使用80元加价券\n3.加价券数量有限，先到先得\n4.限时加价券的生效时间与活动有效期一致\n5.活动最终解释权归爱回收所有'
-    });
-    }
+      });
+    },
+    setEndTime(){
+      var that = this;
+      var interval = setInterval(function timestampToTime(){
+        var date = (new Date(that.endTime)) - (new Date()); //计算剩余的毫秒数
+        if(date == 0){
+          that.isEnd = true;
+          clearInterval(interval)
+        }else{
+          that.day = parseInt(date / 1000 / 60 / 60 / 24 , 10);
+          that.hour = parseInt(date / 1000 / 60 / 60 % 24 , 10);
+          if(that.hour < 10){
+            that.hour = "0" +　that.hour
+          }
+          that.minute = parseInt(date / 1000 / 60 % 60, 10);//计算剩余的分钟
+          if(that.minute < 10){
+            that.minute = "0" +　that.minute
+          } 
+            that.second = parseInt(date / 1000 % 60, 10);//计算剩余的秒数 
+            if(that.second < 10){
+            that.second = "0" +　that.second
+          }
+          return that.day+that.hour+that.minute+that.second;	
+          
+        }
+      },1000);
+  },
+
+
   }
  
   

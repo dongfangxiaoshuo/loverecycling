@@ -253,7 +253,7 @@ export default {
               tig:"换新再省",
               tig_price:"150",
               isCoupon:true,  //是否有优惠券
-              coupon_imgUrl:"/images/area_80",
+              coupon_imgUrl:"/images/coupon_80.png",
               isAvourable:false, //是否有优惠活动
               avourable_price:"2799"
             },
