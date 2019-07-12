@@ -4,7 +4,7 @@
       <header>
         <div class="navgator">
           <div v-for="tag in msg.tab" v-bind:key="tag.active">
-            <img :src="tag.imgUrl" alt="">
+            <img :src="'/images/'+tag.imgUrl" alt="">
             <p>{{tag.name}}</p>
           </div>
         </div>
@@ -17,9 +17,9 @@
       <article>
         <img src="/images/22.png" alt="">
         <div v-for="img in msg.headlines" v-bind:key="img.id">
-          <img :src="img.imgUrl" alt="">
+          <img :src="'/images/'+img.imgUrl" alt="">
         </div>
-      </article>
+      </article> 
 
 
     </section>
