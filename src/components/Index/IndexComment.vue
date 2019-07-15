@@ -49,7 +49,7 @@ export default {
     geolocation.getCurrentPosition(function(r){
       if(this.getStatus() == BMAP_STATUS_SUCCESS){
         that.my_city=r.address.city;
-          console.log(r.address.city);
+          // console.log(r.address.city);
           // alert('您的位置：'+r.point.lng+','+r.point.lat);
       }
       else {
@@ -58,11 +58,12 @@ export default {
     },{enableHighAccuracy: true})
     //Api
     this.$axios.get("get_index_informations").then(res=>{
-      console.log(res.data);  
+      // console.log(res.data);  
       this.tags = res.data;
     }).catch(error=>{
       console.log(error)
     });
+    
 
   }
   

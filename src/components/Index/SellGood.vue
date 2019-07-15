@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.msg)
+    // console.log(this.msg)
   },
   computed: {
    

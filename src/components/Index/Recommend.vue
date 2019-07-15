@@ -3,15 +3,15 @@
     <section>
 
       <header>
-        <img :src="banner.imgUrl" alt="">
+        <img :src="'/images/'+banner.imgUrl" alt="">
 
         <div>
           <dl>
-            <dt>
+            <dt >
               <div class="left">
                 <p>
                   <i>¥</i>
-                  <span>100</span>
+                  <span v-if="countdown">{{countdown.money}}</span>
                 </p>
               </div>
 
@@ -21,7 +21,7 @@
                   <span>最高加价：</span>
                   <p>
                     <i>¥</i>
-                    <span>100</span>
+                    <span  v-if="countdown">{{countdown.money}}</span>
                   </p>
                 </div>
               </div>
@@ -74,16 +74,16 @@
             <div class="ofn_service_content" @click="$router.push({path:'/ofnew'})">
               <div class="ofn_service_content_left">
                 <p>旧机估价</p>
-                <img src="/images/9.jpg" alt="">
-                <h5>苹果 IPhone X</h5>
-                <span>最高回收价 <b>￥5673</b></span>
+                <img :src="'/images/'+recovery_good.img[0].imgUrl" alt="" v-if="recovery_good.img">
+                <h5 v-if="recovery_good.product_information">{{recovery_good.product_information.product_name}}</h5>
+                <span>最高回收价 <b>￥{{recovery_good.recovery_good_price}}</b></span>
               </div>
               <div class="ofn_service_content_right">
                 <p>新机原价</p>
-                <img src="/images/10.png" alt="">
-                <div class="new-tag">最高省<span>150</span></div>
-                <h5>苹果 IPhone XR</h5>
-                <span>新机原价 <b>￥5288</b>起</span>
+                <img :src="'/images/'+sell_good.img[0].imgUrl" alt="" v-if="recovery_good.img">
+                <div class="new-tag">最高省<span v-if="sell_good.promotion_information">{{sell_good.promotion_information.money}}</span></div>
+                <h5 v-if="recovery_good.product_information">{{sell_good.product_information.product_name}}</h5>
+                <span>新机原价 <b>￥{{sell_good.sell_good_price}}</b>起</span>
               </div>
               
             </div>
@@ -93,7 +93,7 @@
                   预计到店获得
                   <span>
                     <i>¥</i>
-                    535
+                    {{money}}
                   </span>
                 </div>
                 <van-button type="default" size="small">去看看</van-button>
@@ -103,11 +103,11 @@
           <div class="more">
             <div class="more_title">更多火爆新机</div>
             <div class="replace-list">
-              <div class="replace-item" v-for="replace in replaces" v-bind:key="replace.id">
-                <img :src="replace.imgUrl" alt="">
-                <h5>{{replace.name}}</h5>
-                <p><span>￥{{replace.price}}</span>起</p>
-                <div class="replace-tag">最高省<span>{{replace.mit}}</span></div>
+              <div class="replace-item" v-for="phone in phonees" v-bind:key="phone.id">
+                <img :src="'/images/'+phone.img[0].imgUrl" alt="">
+                <h5>{{phone.product_information.product_name}}</h5>
+                <p><span>￥{{phone.sell_good_price}}</span>起</p>
+                <div class="replace-tag">{{phone.promotion_information.promotion_content}}<span>{{phone.promotion_information.money}}</span></div>
               </div>
             </div>   
             <div class="serve-list"><span>• 全国联保</span><span>• 省钱省心</span><span>• 不限旧机</span><span>• 闪电到货</span></div>
@@ -125,25 +125,24 @@
           <div class="hot_events">
             <img src="/images/15.png" alt="">
             <div>
-              <img src="/images/16.png" alt="">
-              <img src="/images/17.png" alt="">
+              <img v-for="hot in  hot_events" v-bind:key="hot.id" :src="'/images/'+hot.imgUrl" alt="">              
             </div>
           </div>
 
           <div class="public_welfare">
             <img src="/images/18.png" alt="">
             <div>
-              <img src="/images/19.png" alt="">   
+              <img :src="'/images/'+public_welfare[0].imgUrl" alt="" v-if="public_welfare[0]">   
             </div>
           </div>
 
           <div class="understand">
-            <img src="/images/20.png" alt="">
-            <img src="/images/21.png" alt="">
+            <img :src="'/images/'+public_welfare[1].imgUrl"  alt="" v-if="public_welfare[1]">
+            <img :src="'/images/'+public_welfare[2].imgUrl"  alt="" v-if="public_welfare[2]">
           </div>
 
           <div class="partners">
-            <img src="/images/22.jpg" alt="">
+            <img :src="'/images/'+cooperative_partner.imgUrl" alt="" v-if="cooperative_partner">
           </div>
 
         </div>
@@ -161,10 +160,15 @@ export default {
   name: 'recommend',
   data(){
     return{
-      banner:{
-      id:1,
-      imgUrl:"/images/banner.jpg"
-      },
+      banner:[],
+      countdown:[],
+      recovery_good:[],
+      sell_good:[],
+      money:'',
+      phonees:[],
+      hot_events:[],
+      cooperative_partner:{},
+      public_welfare:[],
       tags:[
         {
           id:1,
@@ -234,8 +238,28 @@ export default {
     
   },
   created(){
-     let that = this;
-		that.setEndTime();
+    let that = this;
+    that.setEndTime();
+     //Api
+    
+    this.$axios.get("get_index").then(res=>{
+      console.log(res.data);
+      this.banner = res.data.banner;
+      this.countdown = res.data.countdown;
+      this.recovery_good = res.data.recovery_good;
+      this.sell_good = res.data.sell_good;
+      this.money = this.recovery_good.recovery_good_price-this.sell_good.sell_good_price;
+      this.phonees = res.data.more;
+      this.hot_events = res.data.hot_active;
+      this.cooperative_partner = res.data.cooperative_partner;
+      this.public_welfare = res.data.public_welfare;
+
+    }).catch(error=>{
+      console.log(error)
+    });
+    
+
+    
   },
   computed: {
     swiper() {
@@ -254,7 +278,7 @@ export default {
     setEndTime(){
       var that = this;
       var interval = setInterval(function timestampToTime(){
-        var date = (new Date(that.endTime)) - (new Date()); //计算剩余的毫秒数
+        var date = (new Date(that.countdown.end_time)) - (new Date()); //计算剩余的毫秒数
         if(date == 0){
           that.isEnd = true;
           clearInterval(interval)
