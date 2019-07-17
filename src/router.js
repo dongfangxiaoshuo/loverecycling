@@ -6,6 +6,7 @@ import Shop from './views/Shop.vue'
 import Me from './views/Me.vue'
 import Choosecity from './views/Choosecity.vue'
 import Category from './views/Category.vue'
+import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/category',
       name: 'Category',
       component: Category
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
   ]
 })
